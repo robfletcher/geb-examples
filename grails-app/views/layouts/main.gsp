@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><g:layoutTitle default="Grails" /></title>
-        <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
-        <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <title><g:layoutTitle /></title>
         <g:layoutHead />
-        <g:javascript library="application" />
     </head>
     <body>
-        <div id="spinner" class="spinner" style="display:none;">
-            <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
-        </div>
-        <div id="grailsLogo"><a href="http://grails.org"><img src="${resource(dir:'images',file:'grails_logo.png')}" alt="Grails" border="0" /></a></div>
+		<header>
+			<h1><g:layoutTitle /></h1>
+		</header>
+		<aside id="auth">
+			<g:if test="${session.username}">
+				Welcome back <span class="username">${session.username}</span>
+				<g:link controller="auth" action="logout" name="logout">Log Out</g:link>
+			</g:if>
+			<g:else>
+				<fieldset>
+					<g:form controller="auth" action="login">
+						<legend>Log In</legend>
+						<label>Username: <input name="username"/></label>
+						<label>Password: <input type="password" name="password"></label>
+						<button name="login" type="submit">Log In</button>
+					</g:form>
+				</fieldset>
+			</g:else>
+		</aside>
         <g:layoutBody />
     </body>
 </html>
