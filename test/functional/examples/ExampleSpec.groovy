@@ -36,5 +36,26 @@ class ExampleSpec extends GebSpec {
 
 		expect:
 		!authModule.loggedIn
+		authModule.username == null
+	}
+
+	def "can log in"() {
+		given:
+		to IndexPage
+
+		when:
+		authModule.form.username = "blackbeard"
+		authModule.form.password = "yohoho!"
+		authModule.loginButton.click()
+
+		then:
+		at IndexPage
+
+		and:
+		authModule.loggedIn
+		authModule.username == "blackbeard"
+
+		cleanup:
+		authModule.logoutButton.click()
 	}
 }

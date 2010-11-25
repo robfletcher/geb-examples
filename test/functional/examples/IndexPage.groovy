@@ -12,6 +12,7 @@ class IndexPage extends Page {
 		recentBooks { $("#recent-books ol li")*.text() }
 		popularBooks { $("#popular-books ol li")*.text() }
 		booksByAuthor { module BookTable, $("#books-by-author table") }
+		authModule { module AuthModule }
 	}
 }
 
@@ -43,6 +44,22 @@ class BookRow extends Module {
 			}
 		}
 		releaseDate { cell(4).text() }
+	}
+}
+
+class AuthModule extends Module {
+
+	static base = { $("aside#auth") }
+
+	static content = {
+		username(required: false) { $(".username").text() }
+		form(required: false) { $("form") }
+		loginButton(required: false, to: IndexPage) { $("button[name=login]") }
+		logoutButton(required: false, to: IndexPage) { $("a[name=logout]") }
+	}
+
+	boolean isLoggedIn() {
+		username
 	}
 }
 
