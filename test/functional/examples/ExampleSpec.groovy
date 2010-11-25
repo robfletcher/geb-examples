@@ -4,7 +4,7 @@ import grails.plugin.geb.GebSpec
 
 class ExampleSpec extends GebSpec {
 
-	def "confirm contents of a list"() {
+	def "handle HTML lists as a list of Strings"() {
 		given:
 		to IndexPage
 
@@ -13,21 +13,30 @@ class ExampleSpec extends GebSpec {
 		popularBooks == ["The Girl With The Dragon Tattoo", "The Girl Who Played With Fire", "The Girl Who Kicked The Hornet's Nest"]
 	}
 
-	def "confirm contents of a table"() {
+	def "handle a table as an indexed content property"() {
 		given:
 		to IndexPage
 
 		expect:
-		booksByAuthor.size() == 4
+		bookTable.size() == 4
 
 		and:
-		booksByAuthor.row(0).title == "Zero History"
-		booksByAuthor.row(3).title == "Pattern Recognition"
-		booksByAuthor.row(0).price == 12.29
+		bookTable.row(0).title == "Zero History"
+		bookTable.row(3).title == "Pattern Recognition"
+		bookTable.row(0).price == 12.29
+	}
+
+	def "handle a table as a list of Modules"() {
+		given:
+		to IndexPage
+
+		expect:
+		books.size() == 4
 
 		and:
-		booksByAuthor.rows.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
-		booksByAuthor.rows.every { it.author == "William Gibson" }
+		books.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
+		books.every { it.author == "William Gibson" }
+		books.price.sum() == 34.27
 	}
 
 	def "confirm non-logged in state"() {
