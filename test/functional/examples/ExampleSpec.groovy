@@ -27,7 +27,7 @@ class ExampleSpec extends GebSpec {
 
 		and:
 		booksByAuthor.rows.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
-		booksByAuthor.rows.author.every { it == "William Gibson" }
+		booksByAuthor.rows.every { it.author == "William Gibson" }
 	}
 
 	def "confirm non-logged in state"() {

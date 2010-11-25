@@ -38,11 +38,7 @@ class BookRow extends Module {
 		title { cell(0).text() }
 		author { cell(1).text() }
 		format { cell(2).text() }
-		price {
-			use(NumberExtractionCategory) {
-				cell(3).text().findNumeric(/£(\d+\.\d+)/)
-			}
-		}
+		price { cell(3).text()[1..-1].toBigDecimal() }
 		releaseDate { cell(4).text() }
 	}
 }
@@ -61,19 +57,4 @@ class AuthModule extends Module {
 	boolean isLoggedIn() {
 		username
 	}
-}
-
-@Category(String)
-class NumberExtractionCategory {
-
-	Number findNumeric(regex, int group = 1) {
-		def matcher = this =~ regex
-		if (matcher.find()) {
-			def n = matcher[0][group]
-			n.contains(".") ? n.toBigDecimal() : n.toInteger()
-		} else {
-			null
-		}
-	}
-
 }
