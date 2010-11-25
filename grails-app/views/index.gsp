@@ -4,7 +4,17 @@
 		<title>Geb Example Page</title>
 	</head>
 	<body>
-		<header><h1>Geb Example Page</h1></header>
+		<header>
+			<h1>Geb Example Page</h1>
+			<aside id="auth">
+				<g:if test="${session.username}">
+
+				</g:if>
+				<g:else>
+
+				</g:else>
+			</aside>
+		</header>
 		<section id="recent-books">
 			<header><h1>Recent Books</h1></header>
 			<ol>

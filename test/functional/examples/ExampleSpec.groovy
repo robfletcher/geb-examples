@@ -18,9 +18,23 @@ class ExampleSpec extends GebSpec {
 		to IndexPage
 
 		expect:
-		booksByAuthor(0).title == "Zero History"
-		booksByAuthor(1).title == "Zero History"
-		booksByAuthor(2).title == "Spook Country"
-		booksByAuthor(3).title == "Pattern Recognition"
+		booksByAuthor.size() == 4
+
+		and:
+		booksByAuthor.row(0).title == "Zero History"
+		booksByAuthor.row(3).title == "Pattern Recognition"
+		booksByAuthor.row(0).price == 12.29
+
+		and:
+		booksByAuthor.rows.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
+		booksByAuthor.rows.author.every { it == "William Gibson" }
+	}
+
+	def "confirm non-logged in state"() {
+		given:
+		to IndexPage
+
+		expect:
+		!authModule.loggedIn
 	}
 }
