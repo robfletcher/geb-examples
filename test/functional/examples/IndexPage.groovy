@@ -27,7 +27,7 @@ class BookTable extends Module {
 	}
 
 	int size() {
-		$("tbody tr").size()
+		rows.size()
 	}
 }
 
