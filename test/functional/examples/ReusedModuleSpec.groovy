@@ -50,7 +50,7 @@ class ReusedModuleSpec extends GebSpec {
 		!authModule.loggedIn
 	}
 
-	def "user can log in using an action method on the page object"() {
+	def "user can log in using an action method on the module"() {
 		when:
 		authModule.login "roundhouse"
 
@@ -66,5 +66,13 @@ class ReusedModuleSpec extends GebSpec {
 		then:
 		def e = thrown(IllegalStateException)
 		e.message == "already logged in"
+	}
+
+	def "user can log out using an action method on the module"() {
+		when:
+		authModule.logout()
+
+		then:
+		!authModule.loggedIn
 	}
 }

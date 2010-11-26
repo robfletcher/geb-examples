@@ -31,4 +31,9 @@ class AuthModule extends Module {
 		form.password = password
 		loginButton.click()
 	}
+
+	void logout() {
+		if (!loggedIn) throw new IllegalStateException("already logged out")
+		logoutButton.click()
+	}
 }
