@@ -12,14 +12,6 @@ class IndexPage extends Page {
 		recentBooks { $("#recent-books ol li")*.text() }
 		popularBooks { $("#popular-books ol li")*.text() }
 
-		// 2 different ways to approach a table of data
-		bookTable { module BookTable, $("#books-by-author table") }
-		books {
-			$("#books-by-author table tbody tr").collect {
-				module BookRow, it
-			}
-		}
-
 		// reusable module that appears on many pages
 		authModule { module AuthModule }
 	}

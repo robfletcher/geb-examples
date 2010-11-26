@@ -1,4 +1,4 @@
-package geb.examples
+package examples
 
 class AuthController {
 

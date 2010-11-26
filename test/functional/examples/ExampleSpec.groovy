@@ -15,7 +15,7 @@ class ExampleSpec extends GebSpec {
 
 	def "handle a table as an indexed content property"() {
 		given:
-		to IndexPage
+		to SearchPage
 
 		expect:
 		bookTable.size() == 4
@@ -28,7 +28,7 @@ class ExampleSpec extends GebSpec {
 
 	def "handle a table as a list of Modules"() {
 		given:
-		to IndexPage
+		to SearchPage
 
 		expect:
 		books.size() == 4
