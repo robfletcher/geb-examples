@@ -1,7 +1,6 @@
 package examples
 
 import geb.Page
-import geb.Module
 
 class IndexPage extends Page {
 
@@ -20,40 +19,8 @@ class IndexPage extends Page {
 				module BookRow, it
 			}
 		}
+
+		// reusable module that appears on many pages
 		authModule { module AuthModule }
-	}
-}
-
-class BookTable extends Module {
-	static content = {
-		row { i -> module BookRow, $("tbody tr", i) }
-		size { $("tbody tr").size() }
-	}
-}
-
-class BookRow extends Module {
-	static content = {
-		cell { i -> $("td", i) }
-		title { cell(0).text() }
-		author { cell(1).text() }
-		format { cell(2).text() }
-		price { cell(3).text()[1..-1].toDouble() }
-		releaseDate { cell(4).text() }
-	}
-}
-
-class AuthModule extends Module {
-
-	static base = { $("aside#auth") }
-
-	static content = {
-		username(required: false) { $(".username").text() }
-		form(required: false) { $("form") }
-		loginButton(required: false, to: IndexPage) { $("button[name=login]") }
-		logoutButton(required: false, to: IndexPage) { $("a[name=logout]") }
-	}
-
-	boolean isLoggedIn() {
-		username
 	}
 }
