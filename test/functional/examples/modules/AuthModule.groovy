@@ -24,4 +24,11 @@ class AuthModule extends Module {
 	boolean isLoggedIn() {
 		username
 	}
+
+	void login(String username, String password = "password") {
+		if (loggedIn) throw new IllegalStateException("already logged in")
+		form.username = username
+		form.password = password
+		loginButton.click()
+	}
 }
