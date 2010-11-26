@@ -15,8 +15,8 @@
 			</g:if>
 			<g:else>
 				<fieldset>
+					<legend>Log In</legend>
 					<g:form controller="auth" action="login">
-						<legend>Log In</legend>
 						<label>Username: <input name="username"/></label>
 						<label>Password: <input type="password" name="password"></label>
 						<button name="login" type="submit">Log In</button>
