@@ -1,6 +1,7 @@
-package examples
+package examples.modules
 
 import geb.Module
+import examples.pages.HomePage
 
 /**
  * An example of a reusable module that would appear on many pages. The module defines its own `base` context and can

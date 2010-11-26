@@ -1,6 +1,8 @@
-package examples
+package examples.pages
 
 import geb.Page
+import examples.modules.BookRow
+import examples.modules.AuthModule
 
 /**
  * A different way to model the search page - here the search results

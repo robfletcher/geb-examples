@@ -1,8 +1,11 @@
 package examples
 
 import grails.plugin.geb.GebSpec
+import examples.pages.HomePage
+import examples.pages.SearchPage2
+import examples.pages.SearchPage1
 
-class ExampleSpec extends GebSpec {
+class RepeatingContentSpec extends GebSpec {
 
 	def "handle HTML lists as a list of Strings"() {
 		given:
@@ -32,39 +35,10 @@ class ExampleSpec extends GebSpec {
 
 		expect:
 		results.size() == 4
-
-		and:
-		results.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
+		results[0].title == "Zero History"
+		results.title.unique() == ["Zero History", "Spook Country", "Pattern Recognition"]
 		results.every { it.author == "William Gibson" }
+		results[2..3].every { it.format == "Paperback" }
 		results.price.sum() == 34.27
-	}
-
-	def "confirm non-logged in state"() {
-		given:
-		to HomePage
-
-		expect:
-		!authModule.loggedIn
-		authModule.username == null
-	}
-
-	def "can log in"() {
-		given:
-		to HomePage
-
-		when:
-		authModule.form.username = "blackbeard"
-		authModule.form.password = "yohoho!"
-		authModule.loginButton.click()
-
-		then:
-		at HomePage
-
-		and:
-		authModule.loggedIn
-		authModule.username == "blackbeard"
-
-		cleanup:
-		authModule.logoutButton.click()
 	}
 }

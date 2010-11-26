@@ -1,6 +1,7 @@
-package examples
+package examples.pages
 
 import geb.Page
+import examples.modules.AuthModule
 
 class HomePage extends Page {
 

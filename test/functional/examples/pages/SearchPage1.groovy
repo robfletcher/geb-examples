@@ -1,6 +1,8 @@
-package examples
+package examples.pages
 
 import geb.Page
+import examples.modules.BookTable
+import examples.modules.AuthModule
 
 /**
  * A first cut at modelling the search page. Here the results are an indexed

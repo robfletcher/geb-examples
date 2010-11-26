@@ -1,4 +1,4 @@
-package examples
+package examples.modules
 
 import geb.Module
 import java.text.SimpleDateFormat
