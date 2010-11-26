@@ -13,11 +13,11 @@ class AuthModule extends Module {
 	static content = {
 		// elements present if the user is logged in
 		username(required: false) { $(".username").text() }
-		logoutButton(required: false, to: IndexPage) { $("a[name=logout]") }
+		logoutButton(required: false, to: HomePage) { $("a[name=logout]") }
 
 		// elements present if the user is not logged in
 		form(required: false) { $("form") }
-		loginButton(required: false, to: IndexPage) { $("button[name=login]") }
+		loginButton(required: false, to: HomePage) { $("button[name=login]") }
 	}
 
 	boolean isLoggedIn() {

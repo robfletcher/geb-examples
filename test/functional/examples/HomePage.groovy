@@ -2,7 +2,7 @@ package examples
 
 import geb.Page
 
-class IndexPage extends Page {
+class HomePage extends Page {
 
 	static url = "http://localhost:8080/"
 	static at = { title == "Geb Example Page" }

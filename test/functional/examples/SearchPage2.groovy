@@ -2,15 +2,17 @@ package examples
 
 import geb.Page
 
-class SearchPage extends Page {
+/**
+ * A different way to model the search page - here the search results
+ * are a List<BookRow> which enables much richer manipulation in tests.
+ */
+class SearchPage2 extends Page {
 
 	static url = "http://localhost:8080/search"
 	static at = { title == "Book Search" }
 
 	static content = {
-		// 2 different ways to approach a table of data
-		bookTable { module BookTable, $("#book-results table") }
-		books {
+		results {
 			$("#book-results table tbody tr").collect {
 				module BookRow, it
 			}

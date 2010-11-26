@@ -6,7 +6,7 @@ class ExampleSpec extends GebSpec {
 
 	def "handle HTML lists as a list of Strings"() {
 		given:
-		to IndexPage
+		to HomePage
 
 		expect:
 		recentBooks == ["Zero History", "Surface Detail", "The Machine of Death"]
@@ -15,33 +15,33 @@ class ExampleSpec extends GebSpec {
 
 	def "handle a table as an indexed content property"() {
 		given:
-		to SearchPage
+		to SearchPage1
 
 		expect:
-		bookTable.size() == 4
+		results.size() == 4
 
 		and:
-		bookTable.row(0).title == "Zero History"
-		bookTable.row(3).title == "Pattern Recognition"
-		bookTable.row(0).price == 12.29
+		results.row(0).title == "Zero History"
+		results.row(3).title == "Pattern Recognition"
+		results.row(0).price == 12.29
 	}
 
 	def "handle a table as a list of Modules"() {
 		given:
-		to SearchPage
+		to SearchPage2
 
 		expect:
-		books.size() == 4
+		results.size() == 4
 
 		and:
-		books.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
-		books.every { it.author == "William Gibson" }
-		books.price.sum() == 34.27
+		results.title == ["Zero History", "Zero History", "Spook Country", "Pattern Recognition"]
+		results.every { it.author == "William Gibson" }
+		results.price.sum() == 34.27
 	}
 
 	def "confirm non-logged in state"() {
 		given:
-		to IndexPage
+		to HomePage
 
 		expect:
 		!authModule.loggedIn
@@ -50,7 +50,7 @@ class ExampleSpec extends GebSpec {
 
 	def "can log in"() {
 		given:
-		to IndexPage
+		to HomePage
 
 		when:
 		authModule.form.username = "blackbeard"
@@ -58,7 +58,7 @@ class ExampleSpec extends GebSpec {
 		authModule.loginButton.click()
 
 		then:
-		at IndexPage
+		at HomePage
 
 		and:
 		authModule.loggedIn
