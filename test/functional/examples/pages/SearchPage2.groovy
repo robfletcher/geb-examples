@@ -3,6 +3,7 @@ package examples.pages
 import geb.Page
 import examples.modules.BookRow
 import examples.modules.AuthModule
+import examples.modules.Pagination
 
 /**
  * A different way to model the search page - here the search results
@@ -10,7 +11,7 @@ import examples.modules.AuthModule
  */
 class SearchPage2 extends Page {
 
-	static url = "http://localhost:8080/search"
+	static url = "http://localhost:8080/book/search"
 	static at = { title == "Book Search" }
 
 	static content = {
@@ -18,6 +19,10 @@ class SearchPage2 extends Page {
 			$("#book-results table tbody tr").collect {
 				module BookRow, it
 			}
+		}
+
+		pagination {
+			module Pagination, $("nav.pagination")
 		}
 
 		// reusable module that appears on many pages
