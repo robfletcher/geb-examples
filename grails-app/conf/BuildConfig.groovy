@@ -12,6 +12,7 @@ grails.project.dependency.resolution = {
         mavenCentral()
     }
     dependencies {
-		test "org.seleniumhq.selenium:selenium-firefox-driver:latest.integration"
+//		test "org.seleniumhq.selenium:selenium-firefox-driver:latest.integration"
+		test "org.seleniumhq.selenium:selenium-chrome-driver:latest.integration"
     }
 }

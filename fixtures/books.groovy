@@ -67,7 +67,7 @@ fixture {
 		releaseDate = new Date(107, 7, 2)
 	}
 
-	zeroHistory(Book) {
+	zeroHistoryHardback(Book) {
 		title = "Zero History"
 		author = "William Gibson"
 		format = Hardback
@@ -75,7 +75,7 @@ fixture {
 		releaseDate = new Date(110, 8, 2)
 	}
 
-	zeroHistory(Book) {
+	zeroHistoryKindle(Book) {
 		title = "Zero History"
 		author = "William Gibson"
 		format = Kindle

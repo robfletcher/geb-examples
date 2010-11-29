@@ -1,3 +1,4 @@
+<%@ page import="examples.Book" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,48 +7,30 @@
   </head>
   <body>
 	  <section id="book-results">
-		  <header><h1>Books by Author</h1></header>
+		  <header><h1>Search Results</h1></header>
 		  <table>
 			  <thead>
 				  <tr>
-					  <th>Title</th>
-					  <th>Author</th>
-					  <th>Format</th>
-					  <th>Price</th>
-					  <th>Release Date</th>
+					  <g:sortableColumn property="title" title="Title"/>
+					  <g:sortableColumn property="author" title="Author"/>
+					  <g:sortableColumn property="format" title="Format"/>
+					  <g:sortableColumn property="price" title="Price"/>
+					  <g:sortableColumn property="releaseDate" title="Release Date"/>
 				  </tr>
 			  </thead>
 			  <tbody>
-				  <tr>
-					  <td>Zero History</td>
-					  <td>William Gibson</td>
-					  <td>Hardback</td>
-					  <td>£12.29</td>
-					  <td>2 Sep 2010</td>
-				  </tr>
-				  <tr>
-					  <td>Zero History</td>
-					  <td>William Gibson</td>
-					  <td>Kindle</td>
-					  <td>£11.99</td>
-					  <td>2 Sep 2010</td>
-				  </tr>
-				  <tr>
-					  <td>Spook Country</td>
-					  <td>William Gibson</td>
-					  <td>Paperback</td>
-					  <td>£5.00</td>
-					  <td>31 Jul 2008</td>
-				  </tr>
-				  <tr>
-					  <td>Pattern Recognition</td>
-					  <td>William Gibson</td>
-					  <td>Paperback</td>
-					  <td>£4.99</td>
-					  <td>24 Jun 2004</td>
-				  </tr>
+				  <g:each var="book" in="${books}">
+					  <tr>
+						  <td>${book.title}</td>
+						  <td>${book.author}</td>
+						  <td>${book.format}</td>
+						  <td><g:formatNumber number="${book.price / 100.0}" type="currency" currencyCode="GBP"/></td>
+						  <td><g:formatDate date="${book.releaseDate}" type="date" style="MEDIUM"/></td>
+					  </tr>
+				  </g:each>
 			  </tbody>
 		  </table>
+		  <g:paginate total="${Book.count()}"/>
 	  </section>
   </body>
 </html>
