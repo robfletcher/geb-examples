@@ -21,12 +21,12 @@ class RepeatingContentSpec extends GebSpec {
 		to SearchPage1
 
 		expect:
-		results.size() == 10
+		results.size() == 5
 
 		and:
 		results.row(0).title == "Zero History"
-		results.row(3).title == "Pattern Recognition"
-		results.row(0).price == 12.29
+		results.row(4).title == "All Tomorrow's Parties"
+		results.row(0).price == 11.34
 	}
 
 	def "handle a table as a list of Modules"() {
@@ -34,11 +34,11 @@ class RepeatingContentSpec extends GebSpec {
 		to SearchPage2
 
 		expect:
-		results.size() == 10
+		results.size() == 5
 		results[0].title == "Zero History"
-		results.title.unique() == ["Zero History", "Spook Country", "Pattern Recognition"]
+		results.title.unique() == ["Zero History", "Spook Country", "Pattern Recognition", "All Tomorrow's Parties"]
 		results.every { it.author == "William Gibson" }
-		results[2..3].every { it.format == "Paperback" }
-		results.price.sum() == 34.27
+		results[2..4].every { it.format == "Paperback" }
+		results.price.sum() == 39.55
 	}
 }

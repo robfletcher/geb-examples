@@ -15,7 +15,7 @@ class BookRow extends Module {
 		title { cell(0).text() }
 		author { cell(1).text() }
 		format { cell(2).text() }
-		price { cell(3).text()[1..-1].toDouble() }
+		price { cell(3).text()[1..-1].toBigDecimal() }
 		releaseDate { new SimpleDateFormat("d MMM yyyy").parse(cell(4).text()) }
 	}
 }
