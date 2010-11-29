@@ -31,7 +31,7 @@
 				</tbody>
 			</table>
 			<nav class="pagination">
-				<g:paginate total="${Book.count()}"/>
+				<g:paginate action="search" total="${Book.count()}"/>
 			</nav>
 		</section>
 	</body>

@@ -21,7 +21,7 @@ class RepeatingContentSpec extends GebSpec {
 		to SearchPage1
 
 		expect:
-		results.size() == 4
+		results.size() == 10
 
 		and:
 		results.row(0).title == "Zero History"
@@ -34,7 +34,7 @@ class RepeatingContentSpec extends GebSpec {
 		to SearchPage2
 
 		expect:
-		results.size() == 4
+		results.size() == 10
 		results[0].title == "Zero History"
 		results.title.unique() == ["Zero History", "Spook Country", "Pattern Recognition"]
 		results.every { it.author == "William Gibson" }
