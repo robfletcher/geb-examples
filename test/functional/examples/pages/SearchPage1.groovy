@@ -18,6 +18,6 @@ class SearchPage1 extends Page {
 		results { module BookTable, $("#book-results table") }
 
 		// reusable module that appears on many pages
-		authModule { module AuthModule }
+		authModule { module AuthModule, $("aside#auth") }
 	}
 }

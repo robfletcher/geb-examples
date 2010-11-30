@@ -9,7 +9,7 @@ import examples.pages.HomePage
  */
 class AuthModule extends Module {
 
-	static base = { $("aside#auth") }
+//	static base = { $("aside#auth") }
 
 	static content = {
 		// elements present if the user is logged in

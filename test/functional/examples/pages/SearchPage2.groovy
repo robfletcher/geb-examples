@@ -26,6 +26,6 @@ class SearchPage2 extends Page {
 		}
 
 		// reusable module that appears on many pages
-		authModule { module AuthModule }
+		authModule { module AuthModule, $("aside#auth") }
 	}
 }

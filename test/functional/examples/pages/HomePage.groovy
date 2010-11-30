@@ -14,6 +14,6 @@ class HomePage extends Page {
 		popularBooks { $("#popular-books ol li")*.text() }
 
 		// reusable module that appears on many pages
-		authModule { module AuthModule }
+		authModule { module AuthModule, $("aside#auth") }
 	}
 }
