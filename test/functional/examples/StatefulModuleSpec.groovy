@@ -14,6 +14,8 @@ class StatefulModuleSpec extends GebSpec {
 		then:
 		results.size() == 5
 		pagination.currentPage == 1
+		pagination.firstPage
+		!pagination.lastPage
 	}
 
 	def "user navigates to 2nd page of results"() {
@@ -24,6 +26,8 @@ class StatefulModuleSpec extends GebSpec {
 		at SearchPage2
 		results.size() == 5
 		pagination.currentPage == 2
+		!pagination.firstPage
+		!pagination.lastPage
 	}
 
 	def "user navigates to last page of results"() {
@@ -34,6 +38,8 @@ class StatefulModuleSpec extends GebSpec {
 		at SearchPage2
 		results.size() == 1
 		pagination.currentPage == 3
+		!pagination.firstPage
+		pagination.lastPage
 	}
 
 	def "user navigates back to 1st page of results"() {

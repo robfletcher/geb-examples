@@ -24,4 +24,12 @@ class Pagination extends Module {
 	void previous() {
 		previousLink.click()
 	}
+
+	boolean isFirstPage() {
+		previousLink.empty
+	}
+
+	boolean isLastPage() {
+		nextLink.empty
+	}
 }
