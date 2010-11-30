@@ -18,10 +18,12 @@ class Pagination extends Module {
 	}
 
 	void next() {
+		if (lastPage) throw new IllegalStateException("Cannot go to next page from last page")
 		nextLink.click()
 	}
 
 	void previous() {
+		if (firstPage) throw new IllegalStateException("Cannot go to previous page from first page")
 		previousLink.click()
 	}
 
