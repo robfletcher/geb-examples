@@ -13,6 +13,6 @@ grails.project.dependency.resolution = {
     }
     dependencies {
 //		test "org.seleniumhq.selenium:selenium-firefox-driver:latest.integration"
-		test "org.seleniumhq.selenium:selenium-chrome-driver:latest.integration"
+		test "org.seleniumhq.selenium:selenium-chrome-driver:2.0a7"
     }
 }
