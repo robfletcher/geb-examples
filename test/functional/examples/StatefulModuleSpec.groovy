@@ -7,6 +7,11 @@ import spock.lang.Stepwise
 @Stepwise
 class StatefulModuleSpec extends GebSpec {
 
+	@Override
+	String getBaseUrl() {
+		super.baseUrl ?: "http://localhost:8080"
+	}
+
 	def "user sees first page of search results"() {
 		when:
 		to SearchPage2

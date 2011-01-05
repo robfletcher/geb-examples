@@ -7,6 +7,11 @@ import examples.pages.SearchPage1
 
 class RepeatingContentSpec extends GebSpec {
 
+	@Override
+	String getBaseUrl() {
+		super.baseUrl ?: "http://localhost:8080"
+	}
+
 	def "handle HTML lists as a list of Strings"() {
 		given:
 		to HomePage

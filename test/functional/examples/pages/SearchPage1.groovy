@@ -11,7 +11,7 @@ import examples.modules.AuthModule
  */
 class SearchPage1 extends Page {
 
-	static url = "http://localhost:8080/book/search"
+	static url = "/book/search"
 	static at = { title == "Book Search" }
 
 	static content = {

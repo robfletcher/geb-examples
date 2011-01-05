@@ -5,7 +5,7 @@ import examples.modules.AuthModule
 
 class HomePage extends Page {
 
-	static url = "http://localhost:8080/"
+	static url = "/"
 	static at = { title == "Geb Example Page" }
 
 	static content = {

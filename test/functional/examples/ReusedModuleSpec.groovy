@@ -8,6 +8,11 @@ import examples.pages.SearchPage2
 @Stepwise
 class ReusedModuleSpec extends GebSpec {
 
+	@Override
+	String getBaseUrl() {
+		super.baseUrl ?: "http://localhost:8080"
+	}
+
 	def "user is initially not logged in"() {
 		given:
 		to HomePage
