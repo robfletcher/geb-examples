@@ -4,8 +4,11 @@
         <title><g:layoutTitle /></title>
 		<style>
 			body { font-family: sans-serif; }
-			#auth { position: absolute; right: 1em; top: 1em; }
-			#auth label { display: block; margin: 0.5em 0; text-align: right; }
+			@media screen and (min-width: 761px) {
+				#auth { position: absolute; right: 1em; top: 1em; }
+				#auth label { text-align: right; }
+			}
+			#auth label { display: block; margin: 0.5em 0; }
 			#auth .message { display: block; }
 			#auth a { display: inline-block; }
 		</style>

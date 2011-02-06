@@ -14,7 +14,7 @@ class AuthModule extends Module {
 	static content = {
 		// elements present if the user is logged in
 		username(required: false) { $(".username").text() }
-		logoutButton(required: false, to: HomePage) { $("a[name=logout]") }
+		logoutButton(required: false, to: HomePage) { $("a.logout") }
 
 		// elements present if the user is not logged in
 		form(required: false) { $("form") }
