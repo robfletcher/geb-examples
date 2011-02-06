@@ -20,6 +20,20 @@
 			.ajax-loading { color: #999; font-style: italic; }
 		</style>
 		<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+		<script>
+			var ajaxCount = 0;
+			$(document).ready(function() {
+				$(document).ajaxSend(function() {
+					ajaxCount++;
+				}).ajaxComplete(function() {
+					ajaxCount--;
+				});
+			});
+
+			function isAjaxComplete() {
+				return ajaxCount == 0;
+			}
+		</script>
         <g:layoutHead />
     </head>
     <body>

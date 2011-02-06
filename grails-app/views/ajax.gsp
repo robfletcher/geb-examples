@@ -19,7 +19,7 @@
 	<body>
 		<section id="search-form">
 			<form>
-				<input type="search" name="q">
+				<input name="q"> <!-- should be type="search" but iPhone driver won't type in it then -->
 				<button type="submit">Search</button>
 			</form>
 		</section>
