@@ -2,12 +2,6 @@
 <html>
 	<head>
 		<title>Example Form</title>
-		<style>
-		label { display: block; }
-		label, fieldset { margin: 1em 0 0.25em 0; }
-		fieldset label { display: inline-block; margin: 0; vertical-align: middle; }
-		input[type=radio] { margin: 0 1em 0 0; }
-		</style>
 		<meta name="layout" content="main">
 	</head>
 	<body>

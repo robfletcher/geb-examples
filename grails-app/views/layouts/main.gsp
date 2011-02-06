@@ -4,6 +4,7 @@
         <title><g:layoutTitle /></title>
 		<style>
 			body { font-family: sans-serif; }
+			section { display: block; }
 			@media screen and (min-width: 761px) {
 				#auth { position: absolute; right: 1em; top: 1em; }
 				#auth label { text-align: right; }
@@ -11,7 +12,14 @@
 			#auth label { display: block; margin: 0.5em 0; }
 			#auth .message { display: block; }
 			#auth a { display: inline-block; }
+			label { display: block; }
+			label, fieldset { margin: 1em 0 0.25em 0; }
+			fieldset label { display: inline-block; margin: 0; vertical-align: middle; }
+			input[type=radio] { margin: 0 1em 0 0; }
+			#search-results { margin: 1em; }
+			.ajax-loading { color: #999; font-style: italic; }
 		</style>
+		<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
         <g:layoutHead />
     </head>
     <body>
