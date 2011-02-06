@@ -2,6 +2,9 @@
 <html>
     <head>
         <title><g:layoutTitle /></title>
+		<style>
+			body { font-family: sans-serif; }
+		</style>
         <g:layoutHead />
     </head>
     <body>
