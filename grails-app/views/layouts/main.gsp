@@ -4,6 +4,10 @@
         <title><g:layoutTitle /></title>
 		<style>
 			body { font-family: sans-serif; }
+			#auth { position: absolute; right: 1em; top: 1em; }
+			#auth label { display: block; margin: 0.5em 0; text-align: right; }
+			#auth .message { display: block; }
+			#auth a { display: inline-block; }
 		</style>
         <g:layoutHead />
     </head>
@@ -13,8 +17,8 @@
 		</header>
 		<aside id="auth">
 			<g:if test="${session.username}">
-				Welcome back <span class="username">${session.username}</span>
-				<g:link controller="auth" action="logout" name="logout">Log Out</g:link>
+				<span class="message">Welcome back <span class="username">${session.username}</span></span>
+				<g:link controller="auth" action="logout" class="logout">Log Out</g:link>
 			</g:if>
 			<g:else>
 				<fieldset>
